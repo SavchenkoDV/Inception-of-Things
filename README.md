@@ -17,7 +17,7 @@
 4.1. Server - https://docs.k3s.io/cli/server
 
 curl -sfL https://get.k3s.io | sh -
-export INSTALL_K3S_EXEC="--write-kubeconfig-mode=644 --tls-san serverS --node-ip 192.168.56.110  --bind-address=192.168.56.110 --advertise-address=192.168.56.110"
+export INSTALL_K3S_EXEC="--write-kubeconfig-mode=644 --tls-san buthorS --node-ip 192.168.56.110  --bind-address=192.168.56.110 --advertise-address=192.168.56.110"
 sudo cat /var/lib/rancher/k3s/server/node-token
 
 sudo ufw allow 6443/tcp
@@ -30,8 +30,9 @@ journalctl -u k3s
 4.2. Agent - https://docs.k3s.io/cli/agent
 
 
-curl -sfL https://get.k3s.io | K3S_URL=https://192.168.56.110:6443 K3S_TOKEN=${TOKEN} sh -
------------------------------------------------
+curl -sfL https://get.k3s.io | K3S_URL=https://192.168.56.111:6443 K3S_TOKEN=${TOKEN} sh -
+export INSTALL_K3S_EXEC="--write-kubeconfig-mode=644 buthorSW --node-ip 192.168.56.111  --bind-address=192.168.56.111 --advertise-address=192.168.56.111"
+
 
 
 nc -vz 192.168.56.110 6443 - check to connect
