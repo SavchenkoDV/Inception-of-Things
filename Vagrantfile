@@ -8,41 +8,31 @@
 
 Vagrant.configure("2") do |config|
   #Install VB and Ubuntu
-  config.vm.define "buthorS" do |machine|
-    machine.vm.box = "ubuntu/bionic64"
-    machine.vm.hostname = "serverS"
-    machine.vm.network "private_network", ip: "192.168.56.110"
-    machine.vm.provider "virtualbox" do |vb|
+  config.vm.define "buthorS" do |server|
+    server.vm.box = "ubuntu/bionic64"
+    server.vm.hostname = "serverS"
+    server.vm.network "private_network", ip: "192.168.56.110"
+    server.vm.provider "virtualbox" do |vb|
       vb.memory = 2048
       vb.cpus = 2
     end
-    machine.vm.provision "shell", inline: <<-SHELL
-      # Install kubectl
-      #Download the kubectl checksum file:
-     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-      #Install kubectl
-     install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-      #use this for detailed view of version:
-     kubectl version --client --output=yaml
-    SHELL
+    server.vm.provision "shell", privilege: true, path: "scr/server.sh"
    end
 
-  config.vm.define "buthorSW" do |machine|
-    machine.vm.box = "ubuntu/bionic64"
-    machine.vm.hostname = "serverWorkerSW"
-    machine.vm.network "private_network", ip: "192.168.56.111"
-    machine.vm.provider "virtualbox" do |vb|
+  config.vm.define "buthorSW" do |worker|
+    worker.vm.box = "ubuntu/bionic64"
+    worker.vm.hostname = "serverWorkerSW"
+    worker.vm.network "private_network", ip: "192.168.56.111"
+    worker.vm.provider "virtualbox" do |vb|
       vb.memory = 2048
       vb.cpus = 2
     end
-    machine.vm.provision "shell", inline: <<-SHELL
-      # Install kubectl
-      #Download the kubectl checksum file:
-     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-      #Install kubectl
-     install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-      #use this for detailed view of version:
-     kubectl version --client --output=yaml
+    worker.vm.provision "shell", inline: <<-SHELL
+    export K3S_TOKEN=$(cat /vagrant/token.env) 
+    rm /vagrant/token.env
+    curl -sfL https://get.k3s.io | K3S_URL=https://192.168.56.111:6443 K3S_TOKEN=${TOKEN} sh - \
+    export INSTALL_K3S_EXEC="--write-kubeconfig-mode=644 \
+    serverWorkerSW --node-ip 192.168.56.111 --bind-address=192.168.56.111 --advertise-address=192.168.56.111"
     SHELL
   end
 
