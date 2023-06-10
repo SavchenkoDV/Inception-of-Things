@@ -1,5 +1,15 @@
 # Inception-of-Things
 
+1. Установить Vagrant - https://developer.hashicorp.com/vagrant/downloads
+  * vagrant - мануал вагранта
+  * vagrant init - инициализируем вагрант файл
+  * vim vagrantfile - конфигурируем вагрант файл
+  * vagrant up - поднимаем виртуалки
+  * vagrant destroy - уничтожаем виртуалки
+  * vagrant status - показывает текущий статус виртуальных машин
+  * vagrant global status - показывает статус активных виртуальных машин
+  * ssh <имя машины> - для подключения к машине через ssh 
+
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-ru
 
 
