@@ -1,14 +1,18 @@
 # Inception-of-Things
+1. Устанавливаем VirtualBox - https://www.virtualbox.org/wiki/Linux_Downloads
 
-1. Установить Vagrant - https://developer.hashicorp.com/vagrant/downloads
+2. Установить Vagrant - https://developer.hashicorp.com/vagrant/downloads
   * vagrant - мануал вагранта
-  * vagrant init - инициализируем Vagrantfile
-  * vim vagrantfile - конфигурируем Vagrantfile
+  * vagrant init - инициализируем вагрант файл
+  * vim Vagrantfile - конфигурируем вагрант файл
   * vagrant up - поднимаем виртуалки
   * vagrant destroy - уничтожаем виртуалки
   * vagrant status - показывает текущий статус виртуальных машин
   * vagrant global status - показывает статус активных виртуальных машин
   * ssh <имя машины> - для подключения к машине через ssh 
+
+3. Открываем Vagrantfile, описываем конфигурации, запускаем.
+  * Устанавливаем K3s сервер и K3s агент - https://docs.k3s.io/quick-start
 
 MASTER
 
