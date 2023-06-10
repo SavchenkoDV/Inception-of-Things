@@ -11,10 +11,10 @@
   * vagrant global status - показывает статус активных виртуальных машин
   * ssh <имя машины> - для подключения к машине через ssh 
 
-3. Открываем Vagrantfile, описываем конфигурации, запускаем.
-  * Устанавливаем K3s сервер и K3s агент - https://docs.k3s.io/quick-start
+3. Открываем Vagrantfile, описываем конфигурации, запускаем - https://developer.hashicorp.com/vagrant/docs
 
-MASTER
+4. Устанавливаем K3s сервер и K3s агент - https://docs.k3s.io/quick-start
+4.1. Server - https://docs.k3s.io/cli/server
 
 curl -sfL https://get.k3s.io | sh -
 export INSTALL_K3S_EXEC="--write-kubeconfig-mode=644 --tls-san serverS --node-ip 192.168.56.110  --bind-address=192.168.56.110 --advertise-address=192.168.56.110"
@@ -27,7 +27,8 @@ root@serverS:/home/vagrant# mkdir ~/.kube
 root@serverS:/home/vagrant# cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 journalctl -u k3s
 
-WORKER
+4.2. Agent - https://docs.k3s.io/cli/agent
+
 
 curl -sfL https://get.k3s.io | K3S_URL=https://192.168.56.110:6443 K3S_TOKEN=${TOKEN} sh -
 -----------------------------------------------
