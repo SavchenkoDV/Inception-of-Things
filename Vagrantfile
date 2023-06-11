@@ -27,7 +27,7 @@ Vagrant.configure("2") do |config|
       vb.memory = 2048
       vb.cpus = 2
     end
-    server.vm.provision "shell", path: "src/worker.sh"
+    worker.vm.provision "shell", path: "src/worker.sh"
   end
 
   # The most common configuration options are documented and commented below.
