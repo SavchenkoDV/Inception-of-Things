@@ -3,12 +3,13 @@
 
 2. Установить Vagrant - https://developer.hashicorp.com/vagrant/downloads
   * vagrant - мануал вагранта
-  * vagrant init - инициализируем вагрант файл
-  * vim Vagrantfile - конфигурируем вагрант файл
+  * vagrant init - инициализируем Vagrantfile
+  * vim Vagrantfile - конфигурируем Vagrantfile
   * vagrant up - поднимаем виртуалки
   * vagrant destroy - уничтожаем виртуалки
   * vagrant status - показывает текущий статус виртуальных машин
   * vagrant global status - показывает статус активных виртуальных машин
+  * vagrant validate - проверка на валидность Vagrantfile
   * ssh <имя машины> - для подключения к машине через ssh 
 
 3. Открываем Vagrantfile, описываем конфигурации, запускаем - https://developer.hashicorp.com/vagrant/docs
