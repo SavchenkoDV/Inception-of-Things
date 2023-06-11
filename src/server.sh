@@ -14,4 +14,16 @@ else
 echo -e "\033[0m\n\033[0m\033[31m FAILURE FILE EXPORT!\033[0"
 fi
 
-#sudo cat /var/lib/rancher/k3s/server/node-token
+if sudo ip link add eth1 type dummy && sudo ip addr add 192.168.56.110/24 dev eth1 && sudo ip link set eth1 up
+then
+echo -e "\n\033[32m eth1 SUCCESS\033[0"
+else
+echo -e "\033[0m\n\033[0m\033[31m eth1 FAILURE!\033[0"
+fi
+
+if sudo cat /var/lib/rancher/k3s/server/token >> /vagrant/token.env
+then
+echo -e "\n\033[32m TOKEN SUCCESSFULLY SAVED\033[0"
+else
+echo -e "\033[0m\n\033[0m\033[31m TOKEN SAVING FAILED!\033[0"
+fi
