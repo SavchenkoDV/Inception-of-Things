@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
       vb.memory = 2048
       vb.cpus = 2
     end
-    server.vm.provision "shell", privilege: true, path: "scr/server.sh"
+    server.vm.provision "shell", privilege: true, path: "src/server.sh"
    end
 
   config.vm.define "buthorSW" do |worker|
