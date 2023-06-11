@@ -9,9 +9,9 @@ fi
 
 if export INSTALL_K3S_EXEC="--write-kubeconfig-mode=644 --tls-san serverS --node-ip 192.168.56.110  --bind-address=192.168.56.110 --advertise-address=192.168.56.110"
 then
-echo -e "\n\033[32m SUCCESS FILE EXPORT"
+echo -e "\n\033[32m SUCCESS FILE EXPORT\033[0"
 else
-echo -e "\033[0m\n\033[0m\033[31m FAILURE FILE EXPORT!"
+echo -e "\033[0m\n\033[0m\033[31m FAILURE FILE EXPORT!\033[0"
 fi
 
 #sudo cat /var/lib/rancher/k3s/server/node-token
