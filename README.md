@@ -1,19 +1,23 @@
 # Inception-of-Things
+1. Устанавливаем VirtualBox - https://www.virtualbox.org/wiki/Linux_Downloads
 
-1. Установить Vagrant - https://developer.hashicorp.com/vagrant/downloads
+2. Установить Vagrant - https://developer.hashicorp.com/vagrant/downloads
   * vagrant - мануал вагранта
-  * vagrant init - инициализируем Vagrantfile
-  * vim vagrantfile - конфигурируем Vagrantfile
+  * vagrant init - инициализируем вагрант файл
+  * vim Vagrantfile - конфигурируем вагрант файл
   * vagrant up - поднимаем виртуалки
   * vagrant destroy - уничтожаем виртуалки
   * vagrant status - показывает текущий статус виртуальных машин
   * vagrant global status - показывает статус активных виртуальных машин
   * ssh <имя машины> - для подключения к машине через ssh 
 
-MASTER
+3. Открываем Vagrantfile, описываем конфигурации, запускаем - https://developer.hashicorp.com/vagrant/docs
+
+4. Устанавливаем K3s сервер и K3s агент - https://docs.k3s.io/quick-start
+4.1. Server - https://docs.k3s.io/cli/server
 
 curl -sfL https://get.k3s.io | sh -
-export INSTALL_K3S_EXEC="--write-kubeconfig-mode=644 --tls-san serverS --node-ip 192.168.56.110  --bind-address=192.168.56.110 --advertise-address=192.168.56.110"
+export INSTALL_K3S_EXEC="--write-kubeconfig-mode=644 --tls-san buthorS --node-ip 192.168.56.110  --bind-address=192.168.56.110 --advertise-address=192.168.56.110"
 sudo cat /var/lib/rancher/k3s/server/node-token
 
 sudo ufw allow 6443/tcp
@@ -23,10 +27,12 @@ root@serverS:/home/vagrant# mkdir ~/.kube
 root@serverS:/home/vagrant# cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 journalctl -u k3s
 
-WORKER
+4.2. Agent - https://docs.k3s.io/cli/agent
 
-curl -sfL https://get.k3s.io | K3S_URL=https://192.168.56.110:6443 K3S_TOKEN=${TOKEN} sh -
------------------------------------------------
+
+curl -sfL https://get.k3s.io | K3S_URL=https://192.168.56.111:6443 K3S_TOKEN=${TOKEN} sh -
+export INSTALL_K3S_EXEC="--write-kubeconfig-mode=644 buthorSW --node-ip 192.168.56.111  --bind-address=192.168.56.111 --advertise-address=192.168.56.111"
+
 
 
 nc -vz 192.168.56.110 6443 - check to connect
