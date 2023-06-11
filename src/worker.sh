@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if export K3S_TOKEN=$(cat /vagrant/token.env)
+if export TOKEN=$(cat /vagrant/token.env)
 then
 echo -e "\n\033[32m EXPORT TOKEN SUCCESS \033[0m"
 else
