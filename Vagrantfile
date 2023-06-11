@@ -27,13 +27,7 @@ Vagrant.configure("2") do |config|
       vb.memory = 2048
       vb.cpus = 2
     end
-    worker.vm.provision "shell", inline: <<-SHELL
-    export K3S_TOKEN=$(cat /vagrant/token.env) 
-    rm /vagrant/token.env
-    curl -sfL https://get.k3s.io | K3S_URL=https://192.168.56.111:6443 K3S_TOKEN=${TOKEN} sh - \
-    export INSTALL_K3S_EXEC="--write-kubeconfig-mode=644 \
-    serverWorkerSW --node-ip 192.168.56.111 --bind-address=192.168.56.111 --advertise-address=192.168.56.111"
-    SHELL
+    server.vm.provision "shell", path: "src/worker.sh"
   end
 
   # The most common configuration options are documented and commented below.
