@@ -60,3 +60,7 @@ enp0s3 - netinterface (debian/ubuntu)
 kubectl get node -owide - show general node
 
 cat /etc/network/interfaces -> sudo apt install ifupdown
+
+---------------
+
+curl -H "Host: app1.com" http://192.168.56.110
