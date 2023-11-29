@@ -176,8 +176,3 @@ spec:
             name: svc-app3
             port:
               number: 8080
-#  defaultBackend:
-#    service:
-#      name: svc-app3
-#      port:
-#        number: 8080

@@ -23,5 +23,4 @@ else
 echo -e "${RED}add eth1 FAILED${RESET}"
 fi
 
-#cat /vagrant/token.env
 sudo rm /vagrant/token.env
