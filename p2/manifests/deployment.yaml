@@ -1,0 +1,183 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-app1
+  labels:
+    app: deploy-app1
+spec:
+  selector:
+    matchLabels:
+      app: app1
+  template:
+    metadata:
+      labels:
+        app: app1
+    spec:
+      containers:
+      - name: app1
+        image: nginx:stable
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: app1-volume
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: app1-volume
+        hostPath:
+          path: /vagrant/rsc/app1
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-app2
+  labels:
+    app: deploy-app2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app2
+  template:
+    metadata:
+      labels:
+        app: app2
+    spec:
+      containers:
+      - name: app2
+        image: nginx:stable
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: app2-volume
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: app2-volume
+        hostPath:
+          path: /vagrant/rsc/app2
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-app3
+  labels:
+    app: deploy-app3
+spec:
+  selector:
+    matchLabels:
+      app: app3
+  template:
+    metadata:
+      labels:
+        app: app3
+    spec:
+      containers:
+      - name: app3
+        image: nginx:stable
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: app3-volume
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: app3-volume
+        hostPath:
+          path: /vagrant/rsc/app3
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-app1
+spec:
+  selector:
+    app: app1
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-app2
+spec:
+  selector:
+    app: app2
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-app3
+spec:
+  selector:
+    app: app3
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 80
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-apps
+spec:
+  rules:
+  - host: app1.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-app1
+            port:
+              number: 8080
+  - host: app2.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-app2
+            port:
+              number: 8080
+  - host: app3.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-app3
+            port:
+              number: 8080
+  - host:
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-app3
+            port:
+              number: 8080
+#  defaultBackend:
+#    service:
+#      name: svc-app3
+#      port:
+#        number: 8080
