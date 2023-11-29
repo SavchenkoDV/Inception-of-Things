@@ -51,19 +51,9 @@ kubectl get node -owide - show general node
 
 cat /etc/network/interfaces -> sudo apt install ifupdown
 
-ss -tlnp - show listening ports
-
-enp0s3 - netinterface (debian/ubuntu)
-
-/etc/netplan - nets configs
-
-kubectl get node -owide - show general node
-
-cat /etc/network/interfaces -> sudo apt install ifupdown
-
 ---------------
 
 curl -H "Host: app1.com" http://192.168.56.110
-Для того что бы сайт открылся на app1.com необходимо добавить в hosts 192.168.56.110 app1.com
+Для того что бы сайт открылся на app1.com необходимо добавить в hosts 192.168.56.110 app*.com
 
 У Vagrant есть свой mount он в корне проекта, там где у Вас лежит Vagrantfile. Он появлется во время создания VM. Путь на VM /vagrant
