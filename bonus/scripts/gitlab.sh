@@ -20,9 +20,9 @@ fi
  
 # deploy gitlab to k3d - https://docs.gitlab.com/charts/installation/deployment.html
 #		               - https://gitlab.com/gitlab-org/charts/gitlab/-/tree/master/examples?ref_type=heads
-helm repo add gitlab https://charts.gitlab.io/
-helm repo update 
-helm upgrade --install gitlab gitlab/gitlab \
+sudo helm repo add gitlab https://charts.gitlab.io/
+sudo helm repo update 
+sudo helm upgrade --install gitlab gitlab/gitlab \
   -n gitlab \
   -f https://gitlab.com/gitlab-org/charts/gitlab/raw/master/examples/values-minikube-minimum.yaml \
   --set global.hosts.domain=k3d.gitlab.com \
@@ -31,12 +31,12 @@ helm upgrade --install gitlab gitlab/gitlab \
   --timeout 600s
 
 #waitpodloc
-kubectl wait --for=condition=ready --timeout=1200s pod -l app=webservice -n gitlab
+sudo kubectl wait --for=condition=ready --timeout=1200s pod -l app=webservice -n gitlab
 
 # argocd localhost:80 or http://gitlab.k3d.gitlab.com
 sudo kubectl port-forward svc/gitlab-webservice-default -n gitlab 80:8181 2>&1 >/dev/null &
 
 # password to gitlab (user: root)
 echo -n -e "${GREEN}GITLAB PASSWORD : "
-  kubectl get secret gitlab-gitlab-initial-root-password -n gitlab -o jsonpath="{.data.password}" | base64 --decode
+  sudo kubectl get secret gitlab-gitlab-initial-root-password -n gitlab -o jsonpath="{.data.password}" | base64 --decode
 echo -e "${RESET}"
