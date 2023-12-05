@@ -7,9 +7,9 @@ Vagrant.configure("2") do |config|
       vb.memory = 2048
       vb.cpus = 2
     end
-    server.vm.provision "shell", path: "src/server.sh"
+    server.vm.provision "shell", path: "scripts/server.sh"
     server.vm.provision "shell", inline: <<-SHELL
-      kubectl apply -f /vagrant/manifests/deployment.yaml
+      kubectl apply -f /vagrant/confs/deployment.yaml
     SHELL
   end
 end
