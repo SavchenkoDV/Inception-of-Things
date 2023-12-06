@@ -1,5 +1,9 @@
 #!/bin/bash
 
+GREEN="\033[32m"
+RED="\033[31m"
+RESET="\033[0m"
+
 # https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
 
 sudo kubectl create namespace argocd && sudo kubectl create namespace dev
@@ -21,10 +25,10 @@ fi
 #waitpod
 sudo kubectl wait --for=condition=ready --timeout=600s pod --all -n argocd
 
-# argocd localhost:8085 or argocd.mydomain.com:8085
-sudo kubectl port-forward svc/argocd-server -n argocd 8085:443 > /dev/null 2>&1 &
-
 # password to argocd (user: admin)
 echo -n -e "${GREEN}ARGOCD PASSWORD : "
   sudo kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 --decode
 echo -e "${RESET}"
+
+# argocd localhost:8085 or argocd.mydomain.com:8085
+sudo kubectl port-forward svc/argocd-server -n argocd 8085:443 > /dev/null 2>&1 &
