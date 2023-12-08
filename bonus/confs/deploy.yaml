@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: http://localhost:7777/root/buthor.git
+    repoURL: http://gitlab-webservice-default.gitlab.svc:8181/root/buthor.git
     targetRevision: HEAD
     path: manifests
   destination:
