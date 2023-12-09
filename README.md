@@ -15,6 +15,7 @@
 3. Открываем Vagrantfile, описываем конфигурации, запускаем - https://developer.hashicorp.com/vagrant/docs
 
 4. Устанавливаем K3s сервер и K3s агент - https://docs.k3s.io/quick-start
+
 4.1. Server - https://docs.k3s.io/cli/server
 
 curl -sfL https://get.k3s.io | sh -
