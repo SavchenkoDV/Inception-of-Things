@@ -21,16 +21,3 @@ if sudo ip link add eth1 type dummy && sudo ip addr add 192.168.56.110/24 dev et
 else
     echo -e "${RED}add eth1 FAILED${RESET}"
 fi
-
-# cheking and add hosts
-HOST_ENTRIES=("127.0.0.1 app1.com" "127.0.0.1 app2.com" "127.0.0.1 app3.com")
-HOSTS_FILE="/etc/hosts"
-
-for HOST_ENTRY in "${HOST_ENTRIES[@]}"; do
-    if grep -q "${HOST_ENTRY}" "$HOSTS_FILE"; then
-        echo "Entry for ${HOST_ENTRY} already exists in $HOSTS_FILE"
-    else
-        echo "Adding ${HOST_ENTRY} to $HOSTS_FILE"
-        echo "$HOST_ENTRY" | sudo tee -a "$HOSTS_FILE"
-    fi
-done

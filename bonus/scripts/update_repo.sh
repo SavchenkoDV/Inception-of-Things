@@ -29,4 +29,4 @@ cd ..
 sudo kubectl apply -f ../confs/deploy.yaml
 
 # Warning port-forward
-echo -e "${GREEN}PORT-FORWARD : sudo kubectl port-forward svc/svc-wil -n dev 8888:8080${RESET}"
+echo "${GREEN}PORT-FORWARD : sudo kubectl port-forward svc/svc-wil -n dev 8888:8080${RESET}"
