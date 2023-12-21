@@ -3,17 +3,11 @@
 
 1. [Install VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads)
 2. [Install Vagrant](https://developer.hashicorp.com/vagrant/downloads)
-	
-2.1. vagrant init - initialize Vagrantfile
-	
-2.2. vim Vagrantfile - open Vagrantfile -> [describe the configuration](https://developer.hashicorp.com/vagrant/docs/vagrantfile) -> save -> vagrant up
-
-
+ * vagrant init - initialize Vagrantfile
+ * vim Vagrantfile - open Vagrantfile -> [describe the configuration](https://developer.hashicorp.com/vagrant/docs/vagrantfile) -> save -> vagrant up
 3. [Installing K3s mater and K3s agent](https://docs.k3s.io/quick-start)
-
-3.1. [Documentation for flags Master](https://docs.k3s.io/cli/server) - [example](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p1/scripts/server.sh)
-
-3.2. [Documentation for flags Worker](https://docs.k3s.io/cli/agent)  - [example](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p1/scripts/worker.sh) 
+ * [Documentation for flags Master](https://docs.k3s.io/cli/server) - [example](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p1/scripts/server.sh)
+ * [Documentation for flags Worker](https://docs.k3s.io/cli/agent)  - [example](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p1/scripts/worker.sh) 
 
 ## PART 2
 
