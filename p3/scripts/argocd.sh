@@ -22,7 +22,7 @@ else
     echo "$HOST_ENTRY" | sudo tee -a "$HOSTS_FILE"
 fi
 
-#waitpod
+# waitpod
 sudo kubectl wait --for=condition=ready --timeout=600s pod --all -n argocd
 
 # password to argocd (user: admin)
