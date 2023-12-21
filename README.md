@@ -1,6 +1,6 @@
 # Inception-of-Things
 ## PART 1
-
+#### In this part, you must install VirtualBox, Vagrant, create a [Vagrantfile](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p1/Vagrantfile) which, using the “vagrant up” command, will launch two virtual machines and use your [scripts](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p1) to install k3s master and worker on these virtual machines. 
 1. [Install VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads)
 2. [Install Vagrant](https://developer.hashicorp.com/vagrant/downloads)<br>
 &emsp; 2.1 vagrant init - initialize Vagrantfile<br>
