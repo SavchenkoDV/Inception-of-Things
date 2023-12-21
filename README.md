@@ -3,13 +3,16 @@
 
 1. [Install VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads)
 2. [Install Vagrant](https://developer.hashicorp.com/vagrant/downloads)
-	2.1. [vagrant init](#vagrant init) - initialize Vagrantfile
-	2.2. vim Vagrantfile - open Vagrantfile, [describe the configuration](https://developer.hashicorp.com/vagrant/docs/vagrantfile), [launch](#launch)
+	
+2.1. vagrant init - initialize Vagrantfile
+	
+2.2. vim Vagrantfile - open Vagrantfile -> [describe the configuration](https://developer.hashicorp.com/vagrant/docs/vagrantfile) -> save -> vagrant up
 
 
 3. [Installing K3s mater and K3s agent](https://docs.k3s.io/quick-start)
 
 3.1. [Documentation for flags Master](https://docs.k3s.io/cli/server) - [example](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p1/scripts/server.sh)
+
 3.2. [Documentation for flags Worker](https://docs.k3s.io/cli/agent)  - [example](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p1/scripts/worker.sh) 
 
 ## PART 2
@@ -21,9 +24,9 @@
 Additional Information:
 1. Vagrant: 
 - vagrant - vagrant manual
-- vagrant init<!--{#vagrant init}--> - initialize the Vagrantfile
+- vagrant init - initialize the Vagrantfile
 - vim Vagrantfile - configure Vagrantfile
-- vagrant up<!--{#launch}--> - raise virtual machines
+- vagrant up - raise virtual machines
 - vagrant destroy - destroy virtual machines
 - vagrant status - shows the current status of virtual machines
 - vagrant global status - shows the status of active virtual machines
