@@ -19,23 +19,23 @@
 
 
 Additional Information:
-	1. Vagrant: 
-		* vagrant - vagrant manual
-		* vagrant init{#vagrant init} - initialize the Vagrantfile
-		* vim Vagrantfile - configure Vagrantfile
-		* vagrant up{#launch} - raise virtual machines
-		* vagrant destroy - destroy virtual machines
-		* vagrant status - shows the current status of virtual machines
-		* vagrant global status - shows the status of active virtual machines
-		* vagrant validate - checking the validity of Vagrantfile
-		* vagrant ssh <machine name> - to connect to the machine via ssh
-	2. Net:
-		* nc -vz 192.168.56.110 6443 - Check connection availability
-		* ss -tlnp - show listening ports - views open ports
-		* cat /etc/netplan - nets configs
-	3. Kubernetes:
-		* kubectl get all -n [namespace-name] - view all resources in a specific namespace
-		* kubectl get all --all-namespaces - view all resources in all namespaces
-		* kubectl get [pod, ingress, or another Kubernetes resource] -n [namespace-name] -o yaml - show YAML manifest information about a specific Kubernetes resource in some namespace
-		* kubectl describe [pod, ingress, or another essence of k8s] -n [namespace-name] - show detailed information about a specific Kubernetes resource in some namespace
-		* kubectl exec -it [pod-name] -- /bin/sh - access the Pod
+1. Vagrant: 
+- vagrant - vagrant manual
+- vagrant init{#vagrant init} - initialize the Vagrantfile
+- vim Vagrantfile - configure Vagrantfile
+- vagrant up{#launch} - raise virtual machines
+- vagrant destroy - destroy virtual machines
+- vagrant status - shows the current status of virtual machines
+- vagrant global status - shows the status of active virtual machines
+- vagrant validate - checking the validity of Vagrantfile
+- vagrant ssh <machine name> - to connect to the machine via ssh
+2. Net:
+- nc -vz 192.168.56.110 6443 - Check connection availability
+- ss -tlnp - show listening ports - views open ports
+- cat /etc/netplan - nets configs
+3. Kubernetes:
+- kubectl get all -n [namespace-name] - view all resources in a specific namespace
+- kubectl get all --all-namespaces - view all resources in all namespaces
+- kubectl get [pod, ingress, or another Kubernetes resource] -n [namespace-name] -o yaml - show YAML manifest information about a specific Kubernetes resource in some namespace
+- kubectl describe [pod, ingress, or another essence of k8s] -n [namespace-name] - show detailed information about a specific Kubernetes resource in some namespace
+- kubectl exec -it [pod-name] -- /bin/sh - access the Pod
