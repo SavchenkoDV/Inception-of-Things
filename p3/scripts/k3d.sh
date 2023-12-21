@@ -1,7 +1,5 @@
 #!/bin/bash
 
-cd /tmp
-
 sudo apt-get update -y
 sudo apt install curl -y
 sudo apt install vim -y
