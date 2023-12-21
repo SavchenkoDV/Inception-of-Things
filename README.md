@@ -10,7 +10,16 @@
 &emsp; 3.2 [Documentation for flags Worker](https://docs.k3s.io/cli/agent)  - [example](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p1/scripts/worker.sh) 
 
 ## PART 2
+#### To complete this part, you must install VirtualBox, Vagrant, create a [Vagrantfile](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p2/Vagrantfile) which, using the “vagrant up” command, will launch virtual machine and use your [script](https://github.com/SavchenkoDV/Inception-of-Things/tree/main/p2/scripts) to install k3s master on these virtual machine (see the installation description in PART 1).
+#### The next step is to write a K8S manifest, which will be launched by Vagrant inside the virtual machine.
+The K8S [manifest](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p2/confs/deployment.yaml) consists of:
+1. [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) - in Kubernetes manages Pods and ReplicaSets, ensuring the desired number of pod replicas, specified in its configuration, are running and up-to-date. [Volume](https://kubernetes.io/docs/concepts/storage/volumes/) inside Deployment manifest plays a key role in managing data storage and availability within pods. Our pods which contains nginx are linked with our [applications](https://github.com/SavchenkoDV/Inception-of-Things/tree/main/p2/rsc).
+2. [Services](https://kubernetes.io/docs/concepts/services-networking/service/) - in Kubernetes acts as a stable network interface to a dynamic set of Pods, facilitating internal or external network communication to these Pods.<br>
+3. [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) - in Kubernetes is a way to route external HTTP and HTTPS traffic to internal Services, providing features like URL routing, load balancing, and SSL termination.
 #### 
+
+https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p2/scripts/server.sh
+
 ![PART 2](https://github.com/SavchenkoDV/Inception-of-Things/assets/78852244/14261349-6290-498c-8a6c-5725a927f73a)
 ## PART 3
 ![image](https://github.com/SavchenkoDV/Inception-of-Things/assets/78852244/a778f1b0-40f1-4af3-974f-bc045e07ce97)
