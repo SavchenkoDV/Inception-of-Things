@@ -6,7 +6,7 @@ GREEN="\033[32m"
 RED="\033[31m"
 RESET="\033[0m"
 
-# Ñreating an environment variable for installing the master node
+# Creating an environment variable for installing the master node
 # https://docs.k3s.io/installation/configuration#configuration-file
 
 if export INSTALL_K3S_EXEC="--write-kubeconfig-mode=644 --tls-san serverS --node-ip 192.168.56.110 --bind-address=192.168.56.110 --advertise-address=192.168.56.110 "; then
