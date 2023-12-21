@@ -10,6 +10,7 @@
 &emsp; 3.2 [Documentation for flags Worker](https://docs.k3s.io/cli/agent)  - [example](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p1/scripts/worker.sh) 
 
 ## PART 2
+![PART 2](https://github.com/SavchenkoDV/Inception-of-Things/assets/78852244/14261349-6290-498c-8a6c-5725a927f73a)
 
 
 
