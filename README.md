@@ -10,7 +10,8 @@
 &emsp; 3.2 [Documentation for flags Worker](https://docs.k3s.io/cli/agent)  - [example](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p1/scripts/worker.sh) 
 
 ## PART 2
-![PART 2](https://github.com/SavchenkoDV/Inception-of-Things/assets/78852244/14261349-6290-498c-8a6c-5725a927f73a)
+![Untitled](https://github.com/SavchenkoDV/Inception-of-Things/assets/78852244/ad56d49c-9248-420f-9ed5-87e2e41b505c)
+
 #### To complete this part, you must install VirtualBox, Vagrant, create a [Vagrantfile](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p2/Vagrantfile) which, using the “vagrant up” command, will launch virtual machine and use your [script](https://github.com/SavchenkoDV/Inception-of-Things/tree/main/p2/scripts) to install k3s master on these virtual machine (see the installation description in PART 1).
 #### The next step is to write a K8S manifest, which will be launched by Vagrant inside the virtual machine.
 The K8S [manifest](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p2/confs/deployment.yaml) consists of:
