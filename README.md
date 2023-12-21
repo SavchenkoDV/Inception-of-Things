@@ -21,9 +21,9 @@
 Additional Information:
 1. Vagrant: 
 - vagrant - vagrant manual
-- vagrant init{#vagrant init} - initialize the Vagrantfile
+- vagrant init<!--{#vagrant init}--> - initialize the Vagrantfile
 - vim Vagrantfile - configure Vagrantfile
-- vagrant up{#launch} - raise virtual machines
+- vagrant up<!--{#launch}--> - raise virtual machines
 - vagrant destroy - destroy virtual machines
 - vagrant status - shows the current status of virtual machines
 - vagrant global status - shows the status of active virtual machines
