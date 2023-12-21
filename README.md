@@ -1,60 +1,41 @@
 # Inception-of-Things
-1. Устанавливаем VirtualBox - https://www.virtualbox.org/wiki/Linux_Downloads
+##PART 1
 
-2. Установить Vagrant - https://developer.hashicorp.com/vagrant/downloads
-  * vagrant - мануал вагранта
-  * vagrant init - инициализируем Vagrantfile
-  * vim Vagrantfile - конфигурируем Vagrantfile
-  * vagrant up - поднимаем виртуалки
-  * vagrant destroy - уничтожаем виртуалки
-  * vagrant status - показывает текущий статус виртуальных машин
-  * vagrant global status - показывает статус активных виртуальных машин
-  * vagrant validate - проверка на валидность Vagrantfile
-  * ssh <имя машины> - для подключения к машине через ssh 
-
-3. Открываем Vagrantfile, описываем конфигурации, запускаем - https://developer.hashicorp.com/vagrant/docs
-
-4. Устанавливаем K3s сервер и K3s агент - https://docs.k3s.io/quick-start
-
-4.1. Server - https://docs.k3s.io/cli/server
-
-curl -sfL https://get.k3s.io | sh -
-export INSTALL_K3S_EXEC="--write-kubeconfig-mode=644 --tls-san buthorS --node-ip 192.168.56.110  --bind-address=192.168.56.110 --advertise-address=192.168.56.110"
-sudo cat /var/lib/rancher/k3s/server/node-token
-
-sudo ufw allow 6443/tcp
-sudo ufw allow 443/tcp
-cat /etc/rancher/k3s/k3s.yaml
-root@serverS:/home/vagrant# mkdir ~/.kube
-root@serverS:/home/vagrant# cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
-journalctl -u k3s
-
-4.2. Agent - https://docs.k3s.io/cli/agent
+1. [Install VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads)
+2. [Install Vagrant](https://developer.hashicorp.com/vagrant/downloads)
+	2.1. [vagrant init](#vagrant init) - initialize Vagrantfile
+	2.2. vim Vagrantfile - open Vagrantfile, [describe the configuration](https://developer.hashicorp.com/vagrant/docs/vagrantfile), [launch](#launch)
 
 
-curl -sfL https://get.k3s.io | K3S_URL=https://192.168.56.111:6443 K3S_TOKEN=${TOKEN} sh -
-export INSTALL_K3S_EXEC="--write-kubeconfig-mode=644 buthorSW --node-ip 192.168.56.111  --bind-address=192.168.56.111 --advertise-address=192.168.56.111"
+3. [Installing K3s mater and K3s agent](https://docs.k3s.io/quick-start)
+
+3.1. [Documentation for flags Master](https://docs.k3s.io/cli/server) - [example](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p1/scripts/server.sh)
+3.2. [Documentation for flags Worker](https://docs.k3s.io/cli/agent)  - [example](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p1/scripts/worker.sh) 
+
+##PART 2
 
 
 
-nc -vz 192.168.56.110 6443 - check to connect
-
-ss -tlnp - show listening ports
-
-enp0s3 - netinterface (debian/ubuntu) 
-
-/etc/netplan - nets configs
-
-kubectl get node -owide - show general node
 
 
----------------
-
-cat /etc/network/interfaces -> sudo apt install ifupdown
-
----------------
-
-curl -H "Host: app1.com" http://192.168.56.110
-Для того что бы сайт открылся на app1.com необходимо добавить в hosts 192.168.56.110 app*.com
-
-У Vagrant есть свой mount он в корне проекта, там где у Вас лежит Vagrantfile. Он появлется во время создания VM. Путь на VM /vagrant
+Additional Information:
+	1. Vagrant: 
+		- vagrant - vagrant manual
+		- vagrant init{#vagrant init} - initialize the Vagrantfile
+		- vim Vagrantfile - configure Vagrantfile
+		- vagrant up{#launch} - raise virtual machines
+		- vagrant destroy - destroy virtual machines
+		- vagrant status - shows the current status of virtual machines
+		- vagrant global status - shows the status of active virtual machines
+		- vagrant validate - checking the validity of Vagrantfile
+		- vagrant ssh <machine name> - to connect to the machine via ssh
+	2. Net:
+		- nc -vz 192.168.56.110 6443 - Check connection availability
+		- ss -tlnp - show listening ports - views open ports
+		- cat /etc/netplan - nets configs
+	3. Kubernetes:
+		- kubectl get all -n [namespace-name] - view all resources in a specific namespace
+		- kubectl get all --all-namespaces - view all resources in all namespaces
+		- kubectl get [pod, ingress, or another Kubernetes resource] -n [namespace-name] -o yaml - show YAML manifest information about a specific Kubernetes resource in some namespace
+		- kubectl describe [pod, ingress, or another essence of k8s] -n [namespace-name] - show detailed information about a specific Kubernetes resource in some namespace
+	- kubectl exec -it [pod-name] -- /bin/sh - access the Pod
