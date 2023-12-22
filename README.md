@@ -19,15 +19,11 @@ The K8S [manifest](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/
 2. [Services](https://kubernetes.io/docs/concepts/services-networking/service/) - in Kubernetes acts as a stable network interface to a dynamic set of Pods, facilitating internal or external network communication to these Pods.<br>
 3. [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) - in Kubernetes is a way to route external HTTP and HTTPS traffic to internal Services, providing features like URL routing, load balancing, and SSL termination.
 #### The last step is to use the [script](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p2/scripts/add_hosts.sh) on the local machine  to add hosts  - to view our applications through the browser.
-
-
 ![Untitled](https://github.com/SavchenkoDV/Inception-of-Things/assets/78852244/75b83eb1-cfb4-4591-9e0c-ed5b69fc654a)
-
-
 ## PART 3
-![image](https://github.com/SavchenkoDV/Inception-of-Things/assets/78852244/a778f1b0-40f1-4af3-974f-bc045e07ce97)
-
-
+![292326348-a778f1b0-40f1-4af3-974f-bc045e07ce97](https://github.com/SavchenkoDV/Inception-of-Things/assets/78852244/c9318b1a-aeea-439c-b281-94815f41240c)
+#### Consistently following the links from our description will allow you to understand how this and the bonus part are performed. We have made comments in our scripts that contain all the links to the documentations.
+#### For this part you need to install K3S in Docker = [K3D](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p3/scripts/k3d.sh). Install [ArgoCD](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p3/scripts/argocd.sh) into the K3S cluster. Run the ArgoCD [script](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p3/scripts/init.sh) which start [manifest](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/p3/confs/deploy.yaml) to deploy the application, using the manifest (see what consist K8S manifest in PART 2) which is located in a specially created [github repository](https://github.com/SavchenkoDV/buthor/blob/main/manifests/application.yaml) = CI/CD. In the bonus part we used [helm](https://helm.sh/), you need to [install git, helm and deploy gitlab] (https://github.com/SavchenkoDV/Inception-of-Things/blob/main/bonus/scripts/gitlab.sh) to the k3s cluster. Create a project manually and [put the manifest there, which is in our github](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/bonus/scripts/update_repo.sh).
  
 #### Additional Information:
 ##### Vagrant: 
@@ -56,3 +52,6 @@ The K8S [manifest](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/
 - kubectl describe [pod, ingress, or another essence of k8s] -n [namespace-name] - show detailed information about a specific Kubernetes resource in some namespace
 - kubectl exec -it [pod-name] -- /bin/sh - access the Pod
 ```
+Actual Status : finished. Result : 100%
+
+This is my inception project from the 42 cursus, if you need help write to me or cdarrell (SLACK). My contacts here: https://github.com/SavchenkoDV.
