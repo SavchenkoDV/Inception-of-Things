@@ -53,6 +53,3 @@ The K8S [manifest](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/
 - kubectl exec -it [pod-name] -- /bin/sh - access the Pod
 ```
 ---
-Actual Status : finished. Result : 125%
-
-This is my inception project from the 42 cursus, if you need help write to me or cdarrell (SLACK). My contacts here: https://github.com/SavchenkoDV.
