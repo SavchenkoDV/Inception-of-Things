@@ -50,6 +50,9 @@ The K8S [manifest](https://github.com/SavchenkoDV/Inception-of-Things/blob/main/
 - kubectl get all --all-namespaces - view all resources in all namespaces
 - kubectl get [pod, ingress, or another Kubernetes resource] -n [namespace-name] -o yaml - show YAML manifest information about a specific Kubernetes resource in some namespace
 - kubectl describe [pod, ingress, or another essence of k8s] -n [namespace-name] - show detailed information about a specific Kubernetes resource in some namespace
+- kubectl get nodes - show nodes
+- kubectl run mypod --image=nginx - create simple pod
+- kubectl get pod mypod -o wide - show mypod information
 - kubectl exec -it [pod-name] -- /bin/sh - access the Pod
 ```
 ---
